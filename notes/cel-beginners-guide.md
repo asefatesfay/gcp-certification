@@ -215,7 +215,238 @@ displayName: "Production VM Labeling Requirements"
 description: "Production VMs must have cost_center, owner, and backup_required labels"
 ```
 
-## 🧪 Testing CEL Expressions
+## 🎯 Step-by-Step Tutorial: Your First Custom CEL Constraint
+
+Let's create a real constraint together! **Requirement:** All resources must have an "environment" label with values "production", "staging", or "development".
+
+### Step 1: Break Down the Requirement
+
+We need to check:
+1. ✅ Resource HAS an "environment" label
+2. ✅ The label value is one of: "production", "staging", "development"
+
+### Step 2: Start with the Simplest Check
+
+```cel
+// Step 2a: Check if environment label exists
+has(resource.labels.environment)
+```
+
+**Test this:**
+- Resource with environment label → `true` ✅
+- Resource without environment label → `false` ❌
+
+### Step 3: Add Value Validation
+
+```cel
+// Step 3a: Check if the value is valid (first attempt)
+resource.labels.environment == "production" ||
+resource.labels.environment == "staging" ||
+resource.labels.environment == "development"
+```
+
+**Problem:** This will fail if the label doesn't exist! We need to combine both checks.
+
+### Step 4: Combine Both Conditions
+
+```cel
+// Step 4a: Both conditions must be true
+has(resource.labels.environment) &&
+(
+  resource.labels.environment == "production" ||
+  resource.labels.environment == "staging" ||
+  resource.labels.environment == "development"
+)
+```
+
+### Step 5: Make It More Elegant with `in` Operator
+
+```cel
+// Step 5a: Cleaner version using 'in'
+has(resource.labels.environment) &&
+resource.labels.environment in ["production", "staging", "development"]
+```
+
+### Step 6: Handle Edge Cases
+
+```cel
+// Step 6a: Handle empty string values
+has(resource.labels.environment) &&
+resource.labels.environment != "" &&
+resource.labels.environment in ["production", "staging", "development"]
+```
+
+### Step 7: Test Your CEL Expression
+
+Let's test with different scenarios:
+
+#### Test Case 1: Valid Production Resource ✅
+```json
+{
+  "resource": {
+    "name": "web-server-01",
+    "labels": {
+      "environment": "production",
+      "team": "backend"
+    }
+  }
+}
+```
+**CEL Result:** `true` ✅ (Should be allowed)
+
+#### Test Case 2: Missing Environment Label ❌
+```json
+{
+  "resource": {
+    "name": "test-vm",
+    "labels": {
+      "team": "development"
+    }
+  }
+}
+```
+**CEL Result:** `false` ❌ (Should be denied)
+
+#### Test Case 3: Invalid Environment Value ❌
+```json
+{
+  "resource": {
+    "name": "experimental-vm",
+    "labels": {
+      "environment": "experimental",
+      "team": "research"
+    }
+  }
+}
+```
+**CEL Result:** `false` ❌ (Should be denied)
+
+#### Test Case 4: Empty Environment Value ❌
+```json
+{
+  "resource": {
+    "name": "empty-env-vm",
+    "labels": {
+      "environment": "",
+      "team": "qa"
+    }
+  }
+}
+```
+**CEL Result:** `false` ❌ (Should be denied)
+
+### Step 8: Create the Complete Custom Constraint
+
+Since you're on the free trial, you can't create organization-level policies, but here's what the complete constraint would look like:
+
+```yaml
+# complete-environment-constraint.yaml
+name: organizations/YOUR-ORG-ID/customConstraints/custom.requireValidEnvironment
+condition: |
+  has(resource.labels.environment) &&
+  resource.labels.environment != "" &&
+  resource.labels.environment in ["production", "staging", "development"]
+actionType: ALLOW
+resourceTypes:
+- compute.googleapis.com/Instance
+- storage.googleapis.com/Bucket
+- cloudsql.googleapis.com/Instance
+displayName: "Require Valid Environment Label"
+description: "All resources must have an environment label with value: production, staging, or development"
+```
+
+### Step 9: Test in CEL Playground
+
+1. Go to https://cel.dev/
+2. Paste your CEL expression:
+```cel
+has(resource.labels.environment) &&
+resource.labels.environment != "" &&
+resource.labels.environment in ["production", "staging", "development"]
+```
+3. Test with sample data:
+```json
+{
+  "resource": {
+    "labels": {
+      "environment": "production"
+    }
+  }
+}
+```
+
+### Step 10: Alternative for Free Trial - Project-Level Testing
+
+Since you can't use organization policies yet, you can simulate this by:
+
+#### Option A: Use Labels in Resource Creation
+```bash
+# Create VM with proper labels
+gcloud compute instances create test-vm \
+    --zone=us-central1-a \
+    --machine-type=e2-micro \
+    --labels=environment=development,team=learning
+
+# Check labels
+gcloud compute instances describe test-vm \
+    --zone=us-central1-a \
+    --format="value(labels)"
+```
+
+#### Option B: Create a Validation Script
+```bash
+#!/bin/bash
+# validate-resources.sh
+
+# Function to validate environment label
+validate_environment() {
+    local env_value=$1
+    case $env_value in
+        "production"|"staging"|"development")
+            echo "✅ Valid environment: $env_value"
+            return 0
+            ;;
+        "")
+            echo "❌ Missing environment label"
+            return 1
+            ;;
+        *)
+            echo "❌ Invalid environment: $env_value (must be production, staging, or development)"
+            return 1
+            ;;
+    esac
+}
+
+# Test the function
+validate_environment "production"   # Should pass
+validate_environment "test"         # Should fail
+validate_environment ""             # Should fail
+```
+
+### Step 11: Enhanced Version with Case Insensitivity
+
+```cel
+// More robust version that handles case variations
+has(resource.labels.environment) &&
+resource.labels.environment != "" &&
+resource.labels.environment.lower() in ["production", "staging", "development"]
+```
+
+This handles cases like "Production", "STAGING", "Development", etc.
+
+### Step 12: Even More Advanced - Multiple Label Requirements
+
+```cel
+// Require environment AND owner labels
+has(resource.labels.environment) &&
+resource.labels.environment in ["production", "staging", "development"] &&
+has(resource.labels.owner) &&
+resource.labels.owner != "" &&
+// Owner must be an email address
+resource.labels.owner.contains("@")
+```
+
+## 🧪 Hands-On Practice
 
 ### Use the CEL Playground
 Google provides an online CEL playground where you can test expressions:
