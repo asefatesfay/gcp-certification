@@ -61,6 +61,26 @@ displayName: "Require Cost Center Label"
 description: "All resources must have a cost_center label"
 ```
 
+**More Complex Example: Production VM Requirements**
+```yaml
+name: organizations/123456789/customConstraints/custom.productionVmLabeling
+condition: |
+  !has(resource.labels.environment) ||
+  resource.labels.environment != "production" ||
+  (
+    has(resource.labels.cost_center) &&
+    has(resource.labels.owner) &&
+    has(resource.labels.backup_required)
+  )
+actionType: ALLOW
+resourceTypes:
+- compute.googleapis.com/Instance
+displayName: "Production VM Labeling"
+description: "Production VMs must have cost_center, owner, and backup_required labels"
+```
+
+*📚 New to CEL? Check out our [CEL Beginners Guide](./cel-beginners-guide.md) for step-by-step learning!*
+
 ## 🌟 Real-World Examples
 
 ### 1. 🏦 **Financial Services Company**

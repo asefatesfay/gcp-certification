@@ -90,6 +90,7 @@ Welcome to my GCP certification learning repository! This documentation tracks m
 - [Networking](./notes/networking.md)
 - [Organizational Hierarchy](./notes/organizational-hierarchy.md)
 - [Organizational Policies](./notes/organizational-policies.md)
+- [CEL Beginners Guide](./notes/cel-beginners-guide.md)
 
 ## 🔬 Practice Labs
 
