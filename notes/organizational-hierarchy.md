@@ -551,6 +551,45 @@ Organization (company.com)
 
 ---
 
+## 🔐 Organizational Policies Integration
+
+### Policy Inheritance in Hierarchy
+Organizational policies work hand-in-hand with your resource hierarchy to enforce governance:
+
+```
+Organization (Policies: Global security rules)
+├── Business Unit Folder (Policies: Business-specific compliance)
+│   ├── Environment Folder (Policies: Environment-specific controls)
+│   │   └── Project (Policies: Project-specific exceptions)
+│   │       └── Resources (Policies applied automatically)
+```
+
+### Example Policy Application
+```
+🏢 GlobalCorp.com
+├── 🔒 Org-Level Policies:
+│   ├── No external IPs on VMs
+│   ├── Encryption at rest required
+│   └── Audit logging mandatory
+├── 🛒 Retail Division
+│   ├── 🔒 Additional Policies:
+│   │   ├── PCI compliance labels required
+│   │   └── Customer data in specific regions only
+│   └── 🏭 Production Environment
+│       ├── 🔒 Additional Policies:
+│       │   ├── No SSH access from internet
+│       │   └── Require approved machine types only
+│       └── retail-web-prod (Inherits all above policies)
+```
+
+### Policy Enforcement Benefits
+- **Consistent governance** across all projects
+- **Automatic compliance** for new resources
+- **Reduced manual oversight** requirements
+- **Clear audit trail** of policy violations
+
+*See [Organizational Policies](./organizational-policies.md) for detailed policy implementation examples.*
+
 ## 🎯 Choosing the Right Hierarchy
 
 ### Decision Matrix

@@ -89,6 +89,7 @@ Welcome to my GCP certification learning repository! This documentation tracks m
 - [IAM](./notes/iam.md)
 - [Networking](./notes/networking.md)
 - [Organizational Hierarchy](./notes/organizational-hierarchy.md)
+- [Organizational Policies](./notes/organizational-policies.md)
 
 ## 🔬 Practice Labs
 
