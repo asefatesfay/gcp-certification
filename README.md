@@ -1,4 +1,23 @@
-# Google Cloud Platform (GCP) Certification Journey
+# Google C### Timeline
+- **Start Date:** August 28, 2025
+- **Target Date for Associate:** [Your target date]
+- **Target Date for Professional:** [Your target date]
+
+## 🛠️ **Getting Started - Setup**
+
+### **Essential Tools Setup**
+Before diving into GCP learning, set up your development environment:
+
+📋 **[gcloud CLI Setup for macOS](./setup/gcloud-setup-macos.md)** - Complete installation and configuration guide
+- Homebrew installation method
+- Authentication setup
+- Project configuration
+- Essential components installation
+- Quick test commands to verify setup
+
+**Why gcloud CLI?** It's essential for both certifications and provides hands-on experience with GCP services. All exam scenarios can be practiced using gcloud commands.
+
+## � Coming from AWS?latform (GCP) Certification Journey
 
 Welcome to my GCP certification learning repository! This documentation tracks my progress toward achieving Google Cloud certifications.
 
@@ -103,6 +122,9 @@ If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guid
 
 ### Core Concepts
 - [Link to your notes on core concepts]
+
+### Setup & Configuration Guides
+- [gcloud CLI Setup for macOS](./setup/gcloud-setup-macos.md)
 
 ### Service-Specific Notes
 - [Compute Engine](./notes/compute-engine.md)
@@ -214,15 +236,22 @@ If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guid
 ```
 gcp-certification/
 ├── README.md                 # This file
+├── setup/                    # Setup and configuration guides
+│   └── gcloud-setup-macos.md # gcloud CLI installation for macOS
 ├── notes/                    # Detailed study notes
 │   ├── compute-engine.md
 │   ├── cloud-storage.md
 │   ├── gke.md
-│   └── ...
+│   ├── iam.md
+│   ├── networking.md
+│   ├── organizational-hierarchy.md
+│   ├── organizational-policies.md
+│   ├── cel-beginners-guide.md
+│   ├── aws-to-gcp-mapping.md
+│   └── aws-gcp-iam-mapping.md
 ├── labs/                     # Hands-on lab exercises
-│   ├── lab1-compute-engine/
-│   ├── lab2-storage/
-│   └── ...
+│   ├── simple-cel-tester.sh
+│   └── environment-label-validation.sh
 ├── practice-exams/           # Practice exam results and analysis
 ├── projects/                 # Larger projects and case studies
 └── resources/                # Additional resources and references
