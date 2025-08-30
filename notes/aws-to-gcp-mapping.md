@@ -173,6 +173,8 @@ gcloud compute networks subnets create my-subnet \
 | **AWS Config** | **Config Connector** | Similar configuration management | Professional ⭐ |
 | **CloudTrail** | **Cloud Audit Logs** | Similar audit logging, different log types | Professional ⭐⭐ |
 
+> 🔐 **Deep Dive Available**: For comprehensive IAM concepts, roles, service accounts, and practical patterns, see our [AWS to GCP IAM Detailed Mapping Guide](./aws-gcp-iam-mapping.md)
+
 #### **Detailed Security Mapping:**
 
 **IAM Policies**
@@ -351,7 +353,7 @@ Cloud Storage → Cloud Functions → Pub/Sub → Dataproc → BigQuery → Data
 - Compare pricing models
 
 ### **Week 3-4: Security & IAM**
-- Understand IAM differences
+- Understand IAM differences (📖 See [detailed IAM mapping guide](./aws-gcp-iam-mapping.md))
 - Learn organization policies vs SCPs
 - Practice with service accounts
 

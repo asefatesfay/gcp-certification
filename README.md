@@ -114,6 +114,7 @@ If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guid
 - [Organizational Policies](./notes/organizational-policies.md)
 - [CEL Beginners Guide](./notes/cel-beginners-guide.md)
 - [AWS to GCP Mapping Guide](./notes/aws-to-gcp-mapping.md)
+- [AWS to GCP IAM Detailed Mapping](./notes/aws-gcp-iam-mapping.md)
 
 ## 🔬 Practice Labs
 
