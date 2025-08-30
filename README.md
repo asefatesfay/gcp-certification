@@ -13,7 +13,29 @@ Welcome to my GCP certification learning repository! This documentation tracks m
 - **Target Date for Associate:** [Your target date]
 - **Target Date for Professional:** [Your target date]
 
-## 📚 Study Resources
+## � Coming from AWS?
+
+If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guide](./notes/aws-to-gcp-mapping.md) which covers:
+
+### 🎯 Quick Service Translations
+| AWS | GCP | Certification Priority |
+|-----|-----|----------------------|
+| EC2 | Compute Engine | ⭐⭐⭐ High |
+| S3 | Cloud Storage | ⭐⭐⭐ High |
+| RDS | Cloud SQL | ⭐⭐⭐ High |
+| Lambda | Cloud Functions | ⭐⭐ Medium |
+| EKS | GKE | ⭐⭐⭐ High (Professional) |
+| Redshift | BigQuery | ⭐⭐⭐ High (Professional) |
+
+### 🧠 Key Conceptual Differences
+- **VPC Networks are global** (not regional like AWS)
+- **Subnets are regional** (span multiple zones)
+- **IAM has folder-level inheritance**
+- **Organization Policies vs Service Control Policies**
+
+*See the full mapping guide for detailed comparisons, code examples, and migration strategies.*
+
+## �📚 Study Resources
 
 ### Official Google Resources
 - [Google Cloud Training](https://cloud.google.com/training)
@@ -91,6 +113,7 @@ Welcome to my GCP certification learning repository! This documentation tracks m
 - [Organizational Hierarchy](./notes/organizational-hierarchy.md)
 - [Organizational Policies](./notes/organizational-policies.md)
 - [CEL Beginners Guide](./notes/cel-beginners-guide.md)
+- [AWS to GCP Mapping Guide](./notes/aws-to-gcp-mapping.md)
 
 ## 🔬 Practice Labs
 
