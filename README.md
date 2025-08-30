@@ -88,6 +88,7 @@ Welcome to my GCP certification learning repository! This documentation tracks m
 - [Kubernetes Engine](./notes/gke.md)
 - [IAM](./notes/iam.md)
 - [Networking](./notes/networking.md)
+- [Organizational Hierarchy](./notes/organizational-hierarchy.md)
 
 ## 🔬 Practice Labs
 
