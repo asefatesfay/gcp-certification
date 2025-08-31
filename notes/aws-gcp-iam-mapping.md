@@ -3,6 +3,8 @@
 ## 📖 Overview
 Identity and Access Management (IAM) is fundamental to both AWS and GCP, but they have different philosophies and implementations. This guide provides a comprehensive mapping to help AWS professionals master GCP IAM.
 
+> 🔍 **Deep Dive Available**: For advanced IAM concepts including metadata, labels, and conditional policies, see our [IAM Metadata Guide](./iam-metadata-guide.md)
+
 ## 🎯 Core IAM Concepts Mapping
 
 ### **Fundamental Components Comparison**

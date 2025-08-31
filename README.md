@@ -137,6 +137,7 @@ If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guid
 - [CEL Beginners Guide](./notes/cel-beginners-guide.md)
 - [AWS to GCP Mapping Guide](./notes/aws-to-gcp-mapping.md)
 - [AWS to GCP IAM Detailed Mapping](./notes/aws-gcp-iam-mapping.md)
+- [IAM Metadata Guide](./notes/iam-metadata-guide.md)
 
 ## 🔬 Practice Labs
 
@@ -248,7 +249,8 @@ gcp-certification/
 │   ├── organizational-policies.md
 │   ├── cel-beginners-guide.md
 │   ├── aws-to-gcp-mapping.md
-│   └── aws-gcp-iam-mapping.md
+│   ├── aws-gcp-iam-mapping.md
+│   └── iam-metadata-guide.md
 ├── labs/                     # Hands-on lab exercises
 │   ├── simple-cel-tester.sh
 │   └── environment-label-validation.sh
