@@ -158,6 +158,23 @@ gcloud compute instances list
 gsutil ls
 ```
 
+### **Quick Verification Script**
+We've included a comprehensive verification script to check your setup:
+
+```bash
+# Run the verification script
+./setup/verify-gcloud-setup.sh
+```
+
+This script will check:
+- ✅ gcloud installation and version
+- ✅ Authentication status
+- ✅ Default project configuration
+- ✅ Region/zone settings
+- ✅ Essential components installation
+- ✅ API access permissions
+- 💡 Free tier recommendations
+
 ### **Test Authentication**
 ```bash
 # Check current authenticated account
