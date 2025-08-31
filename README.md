@@ -255,7 +255,9 @@ gcp-certification/
 │   └── iam-metadata-guide.md
 ├── labs/                     # Hands-on lab exercises
 │   ├── simple-cel-tester.sh
-│   └── environment-label-validation.sh
+│   ├── environment-label-validation.sh
+│   ├── github-actions-service-account-setup.md
+│   └── setup-github-actions-sa.sh
 ├── practice-exams/           # Practice exam results and analysis
 ├── projects/                 # Larger projects and case studies
 └── resources/                # Additional resources and references
