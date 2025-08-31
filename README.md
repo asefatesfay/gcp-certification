@@ -138,6 +138,7 @@ If you have AWS experience, check out our comprehensive [AWS to GCP Mapping Guid
 - [AWS to GCP Mapping Guide](./notes/aws-to-gcp-mapping.md)
 - [AWS to GCP IAM Detailed Mapping](./notes/aws-gcp-iam-mapping.md)
 - [IAM Metadata Guide](./notes/iam-metadata-guide.md)
+- [Custom IAM Roles Guide](./notes/custom-iam-roles-guide.md)
 
 ## 🔬 Practice Labs
 
